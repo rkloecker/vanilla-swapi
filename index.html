@@ -18,21 +18,22 @@
   <template id="output">
     <div class="col-12 col-sm-6 col-md-4 col-lg-3 ">
       <div class="card mb-2">
+        <div class="card-header text-white bg-dark">
+          <h2 data-name class="card-title text-center "></h2>
+        </div>
         <div class="row">
           <div class="card-body">
-            <h5 id="name" class="card-title"></h5>
-            <hr />
             <div class="row ">
               <div class="col-6">Mass:</div>
-              <div class="col-6"><span id="mass" class="badge badge-primary"></span> </div>
+              <div class="col-6"><span data-mass class="badge badge-primary"></span> </div>
             </div>
             <div class="row ">
               <div class="col-6">Height:</div>
-              <div class="col-6"><span id="height" class="badge badge-success"></span> </div>
+              <div class="col-6"><span data-height class="badge badge-success"></span> </div>
             </div>
             <div class="row ">
               <div class="col-6">Birthyear:</div>
-              <div class="col-6"><span id="birthyear" class="badge badge-info"></span> </div>
+              <div class="col-6"><span data-birthyear class="badge badge-info"></span> </div>
             </div>
           </div>
         </div>
@@ -41,12 +42,12 @@
   </template>
   <div class="container">
 
-    <div id="" class="ot">
+    <div>
       <div id="rw" class="row"></div>
     </div>
 
     <button id="showMore" type="button" class="btn btn-primary hide">Show More</button>
-    <button id="goback" type="button" class="btn btn-success hide mt-2">Show 10</button>
+    <!-- <button id="goback" type="button" class="btn btn-success hide mt-2">Show 10</button> -->
   </div>
 
   <script src="index.js"></script>
