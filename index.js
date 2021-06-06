@@ -2,18 +2,18 @@
 const url = "https://swapi.dev/api/people/";
 const output = document.querySelector("#output");
 const moreBtn = document.querySelector("#showMore");
-// const goBackBtn = document.querySelector("#goback");
 const rw = document.querySelector("#rw");
 const dataArray = [];
 
 let cnt = 1;
-function showResult(url) {
-  fetch(url)
-    .then((resp) => resp.json())
-    .then((data) => {
-      // dataArray.push(...data.results);
-      show(data.results);
-    });
+async function showResult(url) {
+  try {
+    const resp = await fetch(url);
+    const data = await resp.json();
+    show(data.results);
+  } catch (error) {
+    console.log("error fetching data");
+  }
 }
 
 function show(arr) {
@@ -34,13 +34,6 @@ function show(arr) {
 function addContent(num) {
   cnt += num;
   showResult(`https://swapi.dev/api/people/?page=${cnt}`);
-  // if (cnt > 1) {
-  //   goBackBtn.style.display = "block";
-  // }
-  // else {
-  //   goBackBtn.style.display = "none";
-  // }
 }
 window.onload = showResult(url);
 moreBtn.addEventListener("click", () => addContent(1));
-// goBackBtn.addEventListener("click", () => show(dataArray.slice(0, 8)));
