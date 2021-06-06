@@ -7,13 +7,19 @@ const dataArray = [];
 
 let cnt = 1;
 async function showResult(url) {
+  let response;
+
   try {
-    const resp = await fetch(url);
-    const data = await resp.json();
-    show(data.results);
+    response = await fetch(url);
   } catch (error) {
-    console.log("error fetching data");
+    console.error("Network error", error);
   }
+
+  if (response && response.ok) {
+    const data = await response.json();
+    console.log("fetched data!");
+    show(data.results);
+  } else rw.innerText = "no data available";
 }
 
 function show(arr) {
